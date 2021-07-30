@@ -1,0 +1,6 @@
+.cardsField__container {
+  width: 1280px;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}

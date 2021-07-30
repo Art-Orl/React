@@ -1,0 +1,27 @@
+.card__container {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  background-color: rgb(155, 122, 147);
+  border-radius: 20px;
+}
+
+.card__container h1 {
+  text-align: center;
+  border-bottom: solid 1px;
+}
+
+.card__container div {
+  margin-bottom: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.card__container div span {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-right: 15px;
+  font-size: 14px;
+  color: black;
+}
