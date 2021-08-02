@@ -1,25 +1,28 @@
-import React, { useState, useEffect, search } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Item } from '../Item/Item';
 
-export function NewsField() {
+export function NewsField({ search, sort, pageSize, setLoading }) {
   const apiKey = 'c27e93c88c0a4b02be787e0e00deb11e';
 
   const [news, setNews] = useState({
     articles: [],
   });
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [search, sort, page, pageSize]);
 
   const fetchItems = async () => {
+    setLoading(true);
     const data = await fetch(
-      `https://newsapi.org/v2/everything?q=${search}&from=2021-08-02&sortBy=popularity&apiKey=c27e93c88c0a4b02be787e0e00deb11e`,
+      `https://newsapi.org/v2/everything?q=${search}&from=2021-08-02&sortBy=${sort}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`,
     );
     const items = await data.json();
     console.log(items);
     setNews(items);
+    setLoading(false);
   };
 
   return (
@@ -37,7 +40,6 @@ export function NewsField() {
                 urlToImage={item.urlToImage}
               />
             );
-            // console.log(item.content);
           })
         : null}
     </div>

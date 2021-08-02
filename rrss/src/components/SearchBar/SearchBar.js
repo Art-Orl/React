@@ -2,25 +2,17 @@ import React from 'react';
 
 import './SearchBar.scss';
 
-export function SearchBar(search, setSearch) {
-  const searchValue = React.createRef();
+export function SearchBar({ setSearch }) {
+  function searchResult() {
+    setSearch(searchValue.current.value);
+  }
 
-  const searchResult = (e) => {
-    // e.preventDefault();
-    console.log(searchValue.current.value);
-    console.log(search);
-    setSearch('1');
-  };
+  const searchValue = React.createRef();
 
   return (
     <div className="search__container">
       <input type="text" placeholder="Search..." ref={searchValue} />
-      <button
-        onClick={() => {
-          setSearch(searchValue.current.value);
-        }}>
-        найти
-      </button>
+      <div onClick={() => searchResult()}>найти</div>
     </div>
   );
 }
