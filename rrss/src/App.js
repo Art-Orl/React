@@ -5,11 +5,11 @@ import { NewsField } from './components/NewsField/NewsFiels';
 import './App.css';
 
 export function App() {
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState('');
 
   return (
     <div className="App">
-      <SearchBar setSearch={setSearch} />
+      <SearchBar search={search} setSearch={setSearch} />
       <NewsField search={search} />
     </div>
   );
