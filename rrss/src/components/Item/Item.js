@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Item';
+import './Item.scss';
 
 export function Item({ author, content, description, publishedAt, title, url, urlToImage }) {
   return (
@@ -10,7 +10,7 @@ export function Item({ author, content, description, publishedAt, title, url, ur
       <div>{description}</div>
       <div>{publishedAt}</div>
       <div>{title}</div>
-      <div>{url}</div>
+      <a href={url}>{url}</a>
       <img src={urlToImage} />
     </div>
   );

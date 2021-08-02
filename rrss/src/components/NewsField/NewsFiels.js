@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, search } from 'react';
 
 import { Item } from '../Item/Item';
 
@@ -15,7 +15,7 @@ export function NewsField() {
 
   const fetchItems = async () => {
     const data = await fetch(
-      'https://newsapi.org/v2/everything?q=Apple&from=2021-08-02&sortBy=popularity&apiKey=c27e93c88c0a4b02be787e0e00deb11e',
+      `https://newsapi.org/v2/everything?q=${search}&from=2021-08-02&sortBy=popularity&apiKey=c27e93c88c0a4b02be787e0e00deb11e`,
     );
     const items = await data.json();
     console.log(items);
@@ -24,20 +24,22 @@ export function NewsField() {
 
   return (
     <div>
-      {news.articles.map((item) => {
-        return (
-          <Item
-            author={item.author}
-            content={item.content}
-            description={item.description}
-            publishedAt={item.publishedAt}
-            title={item.title}
-            url={item.url}
-            urlToImage={item.urlToImage}
-          />
-        );
-        // console.log(item.content);
-      })}
+      {search
+        ? news.articles.map((item) => {
+            return (
+              <Item
+                author={item.author}
+                content={item.content}
+                description={item.description}
+                publishedAt={item.publishedAt}
+                title={item.title}
+                url={item.url}
+                urlToImage={item.urlToImage}
+              />
+            );
+            // console.log(item.content);
+          })
+        : null}
     </div>
   );
 }

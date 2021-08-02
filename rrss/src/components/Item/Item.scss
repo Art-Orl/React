@@ -1,4 +1,9 @@
 .item__container {
-  width: 200px;
-  height: 250px;
+  margin: 10px auto;
+  width: 90%;
+  //   height: 250px;
+  border: solid 1px #383838;
+  img {
+    width: 50px;
+  }
 }
